@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>致菲宝的情人节祝福</title>
+</head>
+
+<body>
+<div id="app">
+    <div class="valentine-container">
+        <div class="hearts-bg"></div>
+        <header class="header animate__animated animate__fadeIn">
+            <h1>💝 致最亲爱的菲宝</h1>
+            <p class="subtitle typing-text">今年的情人节，想对你说...</p>
+        </header>
+
+        <div class="message-card animate__animated animate__zoomIn">
+            <div class="message-content">
+                <p class="love-text">亲爱的菲宝：</p>
+                <p class="love-paragraph">爱情是一场华丽的冒险，而与你相遇，是我生命中美丽的意外。在这红尘纷扰中，你的出现让我看到了命中注定的痕迹。</p>
+                <p class="love-paragraph">你的眉眼间藏着我看不够的温柔，每一个转身都是我心跳的节奏。这世间纷纷扰扰，唯有你的笑靥能让我片刻安宁。</p>
+                <p class="love-paragraph">愿我们的爱情，不随流年消散，不因岁月改变。就像张爱玲说的：于千万人之中，我遇见了你。</p>
+                <p class="love-signature">爱你的 雷宝 ❤️</p>
+                <button class="time-button animate__animated animate__pulse animate__infinite" onclick="window.location.href='timer.html'">
+                    <span class="button-text">点击查看我们的爱情计时器</span>
+                    <div class="button-hearts">
+                        <span>❤️</span>
+                        <span>❤️</span>
+                        <span>❤️</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="floating-hearts"></div>
+    </div>
+</div>
+
+<style>
+:root {
+    --primary-color: #ff69b4;
+    --secondary-color: #ff1493;
+    --background-color: #000;
+    --text-color: #fff;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+    100% { transform: translateY(0) rotate(360deg); }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--background-color);
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.valentine-container {
+    max-width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(45deg, #000000, #1a0011);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.header h1 {
+    color: var(--primary-color);
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255,105,180,0.5);
+}
+
+.typing-text {
+    color: var(--text-color);
+    font-size: 1.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--primary-color);
+    animation: 
+        typing 3.5s steps(40, end),
+        blink .75s step-end infinite;
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 0 20px rgba(255,105,180,0.3);
+    margin: 20px auto;
+}
+
+.love-text {
+    color: var(--text-color);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.love-paragraph {
+    color: var(--text-color);
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.love-signature {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    text-align: right;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: absolute;
+    color: var(--primary-color);
+    font-size: 20px;
+    animation: heartFloat 4s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .love-text {
+        font-size: 1.5em;
+    }
+    
+    .love-paragraph {
+        font-size: 1em;
+    }
+}
+
+.time-button {
+    position: relative;
+    display: block;
+    margin: 40px auto 0;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 20px rgba(255,105,180,0.5);
+}
+
+.time-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(255,105,180,0.8);
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+.button-hearts {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.button-hearts span {
+    position: absolute;
+    opacity: 0;
+    animation: floatHeart 2s infinite;
+}
+
+.button-hearts span:nth-child(1) { animation-delay: 0s; }
+.button-hearts span:nth-child(2) { animation-delay: 0.6s; }
+.button-hearts span:nth-child(3) { animation-delay: 1.2s; }
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px) scale(1);
+        opacity: 0;
+    }
+}
+</style>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const { createApp } = Vue
+
+createApp({
+    mounted() {
+        this.createHearts();
+        this.startHeartAnimation();
+    },
+    methods: {
+        createHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.querySelector('.floating-hearts').appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }, 300);
+        },
+        startHeartAnimation() {
+            const hearts = document.querySelectorAll('.heart');
+            hearts.forEach(heart => {
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            });
+        }
+    }
+}).mount('#app')
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</body>
+</html>

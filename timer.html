@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的爱情计时器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="container animate__animated animate__fadeIn">
+        <h1 class="title">💑 我们的爱情计时</h1>
+        <div class="timer-container animate__animated animate__zoomIn">
+            <div class="timer-box">
+                <div class="time-numbers">
+                    <div class="time-item">
+                        <span id="days">00</span>
+                        <p>天</p>
+                    </div>
+                    <div class="time-item">
+                        <span id="hours">00</span>
+                        <p>时</p>
+                    </div>
+                    <div class="time-item">
+                        <span id="minutes">00</span>
+                        <p>分</p>
+                    </div>
+                    <div class="time-item">
+                        <span id="seconds">00</span>
+                        <p>秒</p>
+                    </div>
+                </div>
+                <div class="love-quote">
+                    <p>自从遇见你的那一刻起</p>
+                    <p class="meet-time">2025年2月3日 11:14</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="love-story animate__animated animate__fadeInUp">
+            <div class="story-card">
+                <p>每一秒都是爱你的时光</p>
+                <p>每一分都是思念的痕迹</p>
+                <p>每一天都是幸福的见证</p>
+            </div>
+        </div>
+        
+        <button class="back-btn" onclick="window.location.href='index.html'">
+            返回主页 ❤️
+        </button>
+    </div>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat;
+    z-index: -2;
+}
+
+.twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat;
+    z-index: -1;
+    animation: twinkle 200s linear infinite;
+}
+
+@keyframes twinkle {
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 3em;
+    color: #ff69b4;
+    text-shadow: 0 0 10px rgba(255,105,180,0.5);
+    margin-bottom: 50px;
+}
+
+.timer-container {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.time-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.time-item {
+    text-align: center;
+}
+
+.time-item span {
+    font-size: 4em;
+    font-weight: bold;
+    color: #ff1493;
+    text-shadow: 0 0 20px rgba(255,20,147,0.5);
+}
+
+.time-item p {
+    font-size: 1.2em;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.love-quote {
+    font-size: 1.5em;
+    margin: 30px 0;
+    color: #ff69b4;
+}
+
+.meet-time {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.love-story {
+    margin-top: 50px;
+}
+
+.story-card {
+    background: rgba(255,105,180,0.1);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(255,105,180,0.2);
+}
+
+.story-card p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+.back-btn {
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(255,105,180,0.5);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em;
+    }
+    
+    .time-numbers {
+        gap: 15px;
+    }
+    
+    .time-item span {
+        font-size: 2.5em;
+    }
+}
+</style>
+
+<script>
+const startDate = new Date('2025-02-03T11:14:00');
+
+function updateTimer() {
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+}
+
+setInterval(updateTimer, 1000);
+updateTimer();
+
+// 添加星星特效
+function createStars() {
+    const container = document.querySelector('.container');
+    for(let i = 0; i < 50; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        star.style.animationDelay = Math.random() * 2 + 's';
+        container.appendChild(star);
+    }
+}
+
+createStars();
+</script>
+</body>
+</html> 
